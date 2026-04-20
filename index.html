@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>teh current month bot</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #e4e5e7;
+    color: #111;
+}
+
+header {
+    background: #5865F2;
+    color: white;
+    padding: 40px;
+    text-align: center;
+}
+
+.container {
+    max-width: 800px;
+    margin: auto;
+    padding: 30px;
+    text-align: center;
+}
+
+.card {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* 🔥 BUTTON STYLE (GLOW + PRESS EFFECT) */
+a.button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 20px;
+    background: #5865F2;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.15s ease;
+
+    /* glow */
+    box-shadow: 0 0 10px rgba(88, 101, 242, 0.6);
+    animation: glowMove 2.5s infinite alternate;
+}
+
+/* hover */
+a.button:hover {
+    background: #4752c4;
+    box-shadow: 0 0 18px rgba(88, 101, 242, 0.9);
+}
+
+/* press down effect */
+a.button:active {
+    transform: translateY(3px);
+    box-shadow: 0 0 5px rgba(88, 101, 242, 0.4);
+}
+
+/* glow animation */
+@keyframes glowMove {
+    0% {
+        box-shadow: 0 0 8px rgba(88, 101, 242, 0.5);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(88, 101, 242, 0.9);
+    }
+    100% {
+        box-shadow: 0 0 10px rgba(88, 101, 242, 0.6);
+    }
+}
+
+footer {
+    margin-top: 40px;
+    text-align: center;
+    color: #444;
+    padding: 20px;
+}
+</style>
+
+</head>
+
+<body>
+
+<header>
+    <h1>The Current Month Bot</h1>
+    <p>A discord bot that tells you the current month</p>
+</header>
+
+<div class="container">
+    <div class="card">
+        <h2>Welcome Hello and Hi!</h2>
+        <p>Basically, it's a bot that tells YOU the current month with a picture.</p>
+
+        <!-- Terms button -->
+        <a class="button" href="JUNG HOO BANTA.html">
+            View Terms & Privacy Policy
+        </a>
+
+        <br>
+
+        <!-- Invite button -->
+        <a class="button" id="inviteBtn">
+            Copy Bot Invite Link
+        </a>
+    </div>
+</div>
+
+<footer>
+    © <span id="year"></span> The Current Month Bot
+</footer>
+
+<script>
+document.getElementById("year").textContent = new Date().getFullYear();
+
+// 🔗 replace this if needed
+const inviteLink = "https://discord.com/oauth2/authorize?client_id=1495535600978235463&permissions=4503874505313280&integration_type=0&scope=applications.commands+bot";
+
+document.getElementById("inviteBtn").addEventListener("click", async () => {
+    try {
+        await navigator.clipboard.writeText(inviteLink);
+        alert("Invite link copied!");
+    } catch (err) {
+        alert("Failed to copy link.");
+    }
+});
+</script>
+
+</body>
+</html>
